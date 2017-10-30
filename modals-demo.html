@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    .backdrop, .modal-wrapper {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    
+    .backdrop {
+        background: #333;
+        opacity: 0.5;
+    }
+    
+    .modal-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .modal {
+        display: none;
+        opacity: 1;
+    }
+</style>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+aliquam aperiam consequuntur dolor doloremque ducimus, eaque explicabo
+fuga fugiat ipsam laudantium modi odit pariatur quos ut veniam voluptates! Debitis, laborum!
+
+<button data-modal="modal0">
+    Open-modal 0
+</button>
+
+<div class="js-modal-target modal" id="modal0">
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+</div>
+
+
+<button data-modal="modal1">
+    Open-modal 1
+</button>
+
+<div class="js-modal-target modal" id="modal1">
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+</div>
+<!--<hr>-->
+
+<!--<button data-modal="modal1">-->
+    <!--Dropdown 1-->
+<!--</button>-->
+
+<!--<div class="js-modal-target" id="modal1">-->
+    <!--<div>Item 1</div>-->
+    <!--<div>Item 2</div>-->
+    <!--<div>Item 3</div>-->
+<!--</div>-->
+
+<!--<hr>-->
+
+<!--<div class="wrapper">-->
+<!--</div>-->
+<script src="modals/modals.js"></script>
+</body>
+</html>
