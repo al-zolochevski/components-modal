@@ -38,11 +38,3 @@ for (var i = 0; i < elements.length; i++) {
         });
     });
 }
-//
-// document.addEventListener("click", function () {
-//     var targets = document.querySelectorAll(".js-modal-target");
-//     for (var i = 0; i < targets.length; i++) {
-//         targets[i].style.display = "none";
-//         // target.outerHTML = '<div class="wrapper">' + target.outerHTML + '</div>'
-//     }
-// });
