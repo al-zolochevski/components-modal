@@ -15,6 +15,19 @@ function wrap(element, wrapper) {
     wrapper.appendChild(element);
 }
 
+/**
+ * @param {string} tagName
+ * @param {string[]} classNames
+ * @return {Element}
+ */
+function create(tagName, classNames) {
+    var element = document.createElement(tagName);
+    classNames.forEach(function (className) {
+        element.classList.add(className);
+    });
+    return element;
+}
+
 var elements = document.querySelectorAll("[data-modal]");
 
 for (var i = 0; i < elements.length; i++) {
@@ -25,14 +38,11 @@ for (var i = 0; i < elements.length; i++) {
         var target = document.getElementById(targetId);
         target.style.display = "block";
 
-        var wrapper = document.createElement('div');
-        wrapper.classList.add('modal-wrapper');
-
+        var wrapper = create('div', ['modal-wrapper']);
         var parent = target.parentNode;
         wrap(target, wrapper);
 
-        var backdrop = document.createElement('div');
-        backdrop.classList.add('backdrop');
+        var backdrop = create('div', ['backdrop']);
 
         // TODO: create prependChild function
         document.body.insertBefore(backdrop, document.body.firstChild);
