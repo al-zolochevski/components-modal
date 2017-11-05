@@ -1,3 +1,20 @@
+/**
+ * @param {Element} element
+*/
+function remove(element) {
+    element.parentNode.removeChild(element);
+}
+
+/**
+ * @param {Element} element
+ * @param {Element} wrapper
+ */
+function wrap(element, wrapper) {
+    var parent = element.parentNode;
+    parent.insertBefore(wrapper, element);
+    wrapper.appendChild(element);
+}
+
 var elements = document.querySelectorAll("[data-modal]");
 
 for (var i = 0; i < elements.length; i++) {
@@ -11,10 +28,8 @@ for (var i = 0; i < elements.length; i++) {
         var wrapper = document.createElement('div');
         wrapper.classList.add('modal-wrapper');
 
-        // TODO: create wrap function
         var parent = target.parentNode;
-        parent.insertBefore(wrapper, target);
-        wrapper.appendChild(target);
+        wrap(target, wrapper);
 
         var backdrop = document.createElement('div');
         backdrop.classList.add('backdrop');
@@ -28,10 +43,8 @@ for (var i = 0; i < elements.length; i++) {
 
                 // TODO: create unwrap function
                 parent.insertBefore(target, wrapper);
-                parent.removeChild(wrapper);
-
-                // TODO: create remove function
-                backdrop.parentNode.removeChild(backdrop);
+                remove(wrapper);
+                remove(backdrop);
 
                 target.style.display = "none";
             }
