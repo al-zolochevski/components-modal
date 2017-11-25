@@ -3,8 +3,8 @@ var closeModal = function (event) {
         var target = this.firstElementChild;
         var backdrop = document.querySelector('.backdrop');
 
-        az(target).unwrap(this);
-        az(backdrop).remove();
+        z(target).unwrap(this);
+        z(backdrop).remove();
     }
 };
 
@@ -17,10 +17,10 @@ for (var i = 0; i < elements.length; i++) {
 
         var target = document.getElementById(targetId);
 
-        var wrapper = az.create('div', ['modal-wrapper']);
-        az(target).wrap(wrapper);
+        var wrapper = z.create('div', ['modal-wrapper']);
+        z(target).wrap(wrapper);
 
-        var backdrop = az.create('div', ['backdrop']);
+        var backdrop = z.create('div', ['backdrop']);
 
         // TODO: prependChild(document.body, backdrop)
         document.body.insertBefore(backdrop, document.body.firstChild);
