@@ -1,33 +1,25 @@
 var closeModal = function (event) {
     if (event.target === event.currentTarget) {
         var target = this.firstElementChild;
-        var backdrop = document.querySelector('.backdrop');
 
         z(target).unwrap(this);
-        z(backdrop).remove();
+        z('.backdrop').remove();
     }
 };
 
-// TODO: addEventListenerForAll("[data-dropdown]", 'click', function(event){...})
-var elements = document.querySelectorAll("[data-modal]");
-for (var i = 0; i < elements.length; i++) {
-    elements[i].addEventListener('click', function (event) {
+z("[data-modal]").on('click', function () {
+    var targetId = this.getAttribute('data-modal');
+    var target = z('#' + targetId);
 
-        var targetId = this.getAttribute('data-modal');
+    var wrapper = z.create('div', ['modal-wrapper']);
+    target.wrap(wrapper);
 
-        var target = document.getElementById(targetId);
+    var backdrop = z.create('div', ['backdrop']);
 
-        var wrapper = z.create('div', ['modal-wrapper']);
-        z(target).wrap(wrapper);
+    // TODO: prependChild(document.body, backdrop)
+    document.body.insertBefore(backdrop, document.body.firstChild);
 
-        var backdrop = z.create('div', ['backdrop']);
+    target.show();
 
-        // TODO: prependChild(document.body, backdrop)
-        document.body.insertBefore(backdrop, document.body.firstChild);
-
-        // TODO show(target), hide(target)
-        target.style.display = "block";
-
-        wrapper.addEventListener('click', closeModal);
-    });
-}
+    wrapper.addEventListener('click', closeModal);
+});
