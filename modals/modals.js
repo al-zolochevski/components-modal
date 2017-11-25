@@ -3,8 +3,8 @@ var closeModal = function (event) {
         var target = this.firstElementChild;
         var backdrop = document.querySelector('.backdrop');
 
-        az.unwrap(target, this);
-        az.remove(backdrop);
+        az(target).unwrap(this);
+        az(backdrop).remove();
     }
 };
 
@@ -18,7 +18,7 @@ for (var i = 0; i < elements.length; i++) {
         var target = document.getElementById(targetId);
 
         var wrapper = az.create('div', ['modal-wrapper']);
-        az.wrap(target, wrapper);
+        az(target).wrap(wrapper);
 
         var backdrop = az.create('div', ['backdrop']);
 
